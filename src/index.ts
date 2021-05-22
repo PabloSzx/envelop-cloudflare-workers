@@ -1,5 +1,5 @@
 import { Handler, Router } from "worktop";
-import * as Cache from "worktop/cache";
+import { listen } from "worktop/cache";
 
 import { createEnvelopAppFactory, gql, handleRequest } from "@pablosz/envelop-app/common/app";
 
@@ -79,4 +79,4 @@ API.add("POST", "/graphql", async (req, res) => {
   await (await App).app(req, res);
 });
 
-Cache.listen(API.run);
+listen(API.run);
